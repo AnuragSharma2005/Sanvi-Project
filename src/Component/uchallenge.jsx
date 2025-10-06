@@ -1,8 +1,13 @@
 "use client"
-import React from "react"
+import React, { useEffect } from "react"
 import { motion } from "framer-motion"
 
 export default function Uchallenge() {
+  // Scroll to top on mount
+  useEffect(() => {
+    window.scrollTo(0, 0)
+  }, [])
+
   const sections = [
     {
       title: "Competition and Pricing ⚔",
@@ -58,7 +63,7 @@ export default function Uchallenge() {
         Challenges
       </motion.h1>
 
-      {/* ⬇ Responsive Vertical Line */}
+      {/* ⬇ Vertical Line */}
       <div
         className="
           absolute
@@ -92,37 +97,27 @@ export default function Uchallenge() {
                 viewport={{ once: true, amount: 0.3 }}
                 custom={isEven ? "left" : "right"}
               >
-              <div className="w-72 h-72 sm:w-96 sm:h-96 bg-black/20 rounded-xl border border-white/20 overflow-hidden shadow-lg shadow-black/30">
-                <img
-                  src={section.image}
-                  alt={section.title}
-                  className="h-full object-cover object-left"
-                />
-              </div>
-
+                <div className="w-72 h-72 sm:w-96 sm:h-96 bg-black/20 rounded-xl border border-white/20 overflow-hidden shadow-lg shadow-black/30">
+                  <img
+                    src={section.image}
+                    alt={section.title}
+                    className="h-full object-cover object-left"
+                  />
+                </div>
               </motion.div>
 
               {/* Text */}
               <motion.div
-                className="
-                  w-full sm:w-1/2 flex flex-col gap-4
-                  sm:px-4
-                  text-left sm:text-left
-                  ml-0 sm:ml-0
-                  md:ml-0
-                  md:pr-0
-                  pl-8 sm:pl-0
-                  "
+                className="w-full sm:w-1/2 flex flex-col gap-4 sm:px-4 text-left"
                 variants={contentVariants}
                 initial="hidden"
                 whileInView="visible"
                 viewport={{ once: true, amount: 0.3 }}
                 custom={isEven ? "left" : "right"}
               >
-               <h2 className="text-2xl sm:text-4xl font-bold mb-2 text-pink-300">
+                <h2 className="text-2xl sm:text-4xl font-bold mb-2 text-pink-300">
                   {section.title}
                 </h2>
-
                 <p className="text-base sm:text-lg opacity-90 leading-relaxed text-justify tracking-wide">
                   {section.text}
                 </p>

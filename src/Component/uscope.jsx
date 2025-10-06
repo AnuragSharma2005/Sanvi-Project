@@ -1,8 +1,13 @@
 "use client"
-import React from "react"
+import React, { useEffect } from "react"
 import { motion } from "framer-motion"
 
 export default function Uscope() {
+  // Scroll to top on mount
+  useEffect(() => {
+    window.scrollTo(0, 0)
+  }, [])
+
   // Animation variants
   const imageVariants = {
     hidden: { x: -100, opacity: 0 },
@@ -15,7 +20,7 @@ export default function Uscope() {
   }
 
   return (
-    <main className="min-h-screen bg-gradient-to-br from-[#0b1430] via-[#3b0764] to-black text-white px-12 py-16 flex flex-col sm:flex-row items-center justify-center gap-16">
+    <main className="min-h-screen bg-gradient-to-br from-[#0b1430] via-[#3b0764] to-black text-white px-4 sm:px-12 py-16 flex flex-col sm:flex-row items-center justify-center gap-12 sm:gap-16">
       
       {/* Left Side Image */}
       <motion.div
@@ -24,23 +29,23 @@ export default function Uscope() {
         initial="hidden"
         animate="visible"
       >
-        <div className="w-96 h-96 sm:w-[28rem] sm:h-[28rem] bg-black/20 rounded-xl border border-white/20 flex items-center justify-center overflow-hidden">
+        <div className="w-80 h-80 sm:w-[28rem] sm:h-[28rem] bg-black/20 rounded-xl border border-white/20 flex items-center justify-center overflow-hidden">
           <img
             src="/uscope.png"
-            alt="Uber India Launch"
-            className="w-80 h-80 sm:w-[26rem] sm:h-[26rem] object-cover rounded-md"
+            alt="Uber Scope"
+            className="w-72 h-72 sm:w-[26rem] sm:h-[26rem] object-cover rounded-md"
           />
         </div>
       </motion.div>
 
       {/* Right Side Content */}
       <motion.div
-        className="w-full sm:w-1/2 flex flex-col gap-4 sm:-translate-x-4 text-left"
+        className="w-full sm:w-1/2 flex flex-col gap-4 text-left"
         variants={contentVariants}
         initial="hidden"
         animate="visible"
       >
-        <h1 className="text-3xl sm:text-4xl font-bold mb-4">Uber History in India</h1>
+        <h1 className="text-3xl sm:text-4xl font-bold mb-4">Uber Scope in India</h1>
 
         <p className="text-base sm:text-lg opacity-90 leading-relaxed text-justify">
           Uber first marked its presence in India in 2013, launching its services in Bengaluru to challenge the traditional taxi model. Its initial strategy leveraged its core global strengths: a seamless, cashless, app-based booking experience, and professional drivers.

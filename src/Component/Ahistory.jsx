@@ -1,65 +1,75 @@
 "use client"
-import React from "react"
+import React, { useEffect } from "react"
 import { motion } from "framer-motion"
 
 export default function Ahistory() {
+  // Scroll to top when page loads
+  useEffect(() => {
+    window.scrollTo(0, 0)
+  }, [])
+
   // Animation variants
-  const textVariants = {
-    hidden: { x: -150, opacity: 0 },
-    visible: { 
-      x: 0, 
-      opacity: 1, 
-      transition: { type: "spring", stiffness: 90, damping: 20, duration: 0.8 } 
-    },
+  const imageVariants = {
+    hidden: { x: -100, opacity: 0 },
+    visible: { x: 0, opacity: 1, transition: { type: "spring", stiffness: 80, duration: 0.8 } },
   }
 
-  const imageVariants = {
-    hidden: { x: 150, opacity: 0 },
-    visible: { 
-      x: 0, 
-      opacity: 1, 
-      transition: { type: "spring", stiffness: 90, damping: 20, duration: 0.8, delay: 0.2 } 
-    },
+  const contentVariants = {
+    hidden: { x: 100, opacity: 0 },
+    visible: { x: 0, opacity: 1, transition: { type: "spring", stiffness: 80, duration: 0.8 } },
   }
 
   return (
-    <main className="min-h-screen bg-gradient-to-br from-[#0b1430] via-[#3b0764] to-black text-white px-6 sm:px-12 flex flex-col sm:flex-row items-center justify-center gap-12">
+    <main className="min-h-screen bg-gradient-to-br from-[#0b1430] via-[#3b0764] to-black text-white px-4 sm:px-12 py-24 flex flex-col sm:flex-row items-center justify-center gap-12 sm:gap-16">
       
-      {/* Left Side Text */}
+      {/* Left Side Image */}
       <motion.div
-        className="w-full sm:w-1/2 flex flex-col gap-4 text-left"
-        variants={textVariants}
-        initial="hidden"
-        animate="visible"
-      >
-        <h1 className="text-3xl sm:text-4xl font-bold mb-4">Uber History in India</h1>
-
-        <p className="text-base sm:text-lg opacity-90 leading-relaxed text-justify">
-          Uber first marked its presence in India in 2013, launching its services in Bengaluru to challenge the traditional taxi model. Its initial strategy leveraged its core global strengths: a seamless, cashless, app-based booking experience, and professional drivers.
-        </p>
-
-        <p className="text-base sm:text-lg opacity-90 leading-relaxed text-justify">
-          The company quickly expanded, but faced significant local hurdles, most notably from domestic rival Ola and the market's heavy reliance on cash payments. This forced Uber to localize its product rapidly, introducing the cash payment option in 2015—a major deviation from its global model.
-        </p>
-
-        <p className="text-base sm:text-lg opacity-90 leading-relaxed text-justify">
-          Over the years, Uber poured billions of dollars into subsidies and incentives to acquire both riders and drivers, making India one of its most critical international battlegrounds. Furthermore, to cater to the diverse needs of the price-sensitive market, Uber introduced low-cost services like UberGO and categories like Uber Auto and Uber Moto (bike taxis), fundamentally transforming urban mobility and establishing a massive, if often volatile, presence across hundreds of Indian cities.
-        </p>
-      </motion.div>
-
-      {/* Right Side Image */}
-      <motion.div
-        className="w-full sm:w-1/2 flex items-center justify-center"
+        className="w-full sm:w-1/2 flex items-center justify-center mt-8 sm:mt-0"
         variants={imageVariants}
         initial="hidden"
         animate="visible"
       >
-        <div className="w-full max-w-md h-96 bg-black/20 rounded-xl border border-white/20 flex items-center justify-center overflow-hidden">
+        <div className="w-80 h-80 sm:w-[28rem] sm:h-[28rem] bg-black/20 rounded-xl border border-white/20 flex items-center justify-center overflow-hidden">
           <img
-            src="/uhistory.png"
-            alt="Uber India Launch"
-            className="w-full h-full object-cover rounded-xl"
+            src="/Ahistory.png"
+            alt="Amazon India Launch"
+            className="w-72 h-72 sm:w-[26rem] sm:h-[26rem] object-cover rounded-md"
           />
+        </div>
+      </motion.div>
+
+      {/* Right Side Content */}
+      <motion.div
+        className="w-full sm:w-1/2 flex flex-col gap-4 text-left mt-4 sm:mt-8"
+        variants={contentVariants}
+        initial="hidden"
+        animate="visible"
+      >
+        <h1 className="text-3xl sm:text-6xl font-extrabold mb-4 -mt-6 text-center bg-gradient-to-r from-pink-400 via-purple-400 to-blue-400 bg-clip-text text-transparent font-[Playfair_Display]">
+          Amazon History in India
+        </h1>
+
+        <p className="text-base sm:text-lg opacity-90 leading-relaxed text-justify">
+          Amazon launched its India operations on June 5, 2013, starting with just books. To comply with regulations that prohibited foreign-owned companies from directly selling goods to consumers, Amazon adopted a pure marketplace model from the outset. It focused on onboarding third-party sellers and providing them with a platform, logistics (Fulfillment by Amazon), and technology.
+
+          The company quickly realized the need to adapt its global playbook to the unique Indian market, which was less reliant on online payments and had poor internet connectivity. Some India-first innovations include:
+          <ul className="list-disc list-inside mt-2">
+            <li>Cash-on-Delivery (CoD): A critical feature for building customer trust in a cash-dominant economy.</li>
+            <li>Lite App Versions: Optimization of its mobile app for slower 2G/3G networks and cheaper smartphones.</li>
+            <li>Logistics Network: Partnering with India Post and local kirana stores to achieve pan-India reach, including remote areas.</li>
+          </ul>
+
+          {/* This localized strategy allowed Amazon to rapidly expand its product selection and challenge the established local market leaders. */}
+        </p>
+
+        {/* Buttons */}
+        <div className="w-full flex justify-between mt-6">
+          <button className="px-6 py-2 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-white hover:bg-white/20 transition">
+            Previous
+          </button>
+          <button className="px-6 py-2 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-white hover:bg-white/20 transition">
+            Next
+          </button>
         </div>
       </motion.div>
 

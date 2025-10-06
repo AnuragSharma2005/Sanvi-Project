@@ -9,7 +9,7 @@ import Amazoncards from "./Component/amazoncards"
 import Ahistory from "./Component/Ahistory"
 import Achallenge from "./Component/Achallenge"
 import Ascope from "./Component/Ascope"
-import About from "./About"
+// import About from "./Component/About"
 function App() {
   return (
     <Router>
@@ -24,7 +24,7 @@ function App() {
            <Route path="/Ahistory" element={<Ahistory/>} />
             <Route path="/Achallenge" element={<Achallenge/>} />
             <Route path="/Ascope" element={<Ascope/>} />
-            <Route path="/About" element={<About/>} />
+            {/* <Route path="/About" element={<About/>} /> */}
       </Routes>
     </Router>
   )

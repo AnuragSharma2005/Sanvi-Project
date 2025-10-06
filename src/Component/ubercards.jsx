@@ -1,16 +1,22 @@
 "use client"
+import { useEffect } from "react"
 import { motion } from "framer-motion"
 import { useNavigate } from "react-router-dom"
 
 export default function UberCards() {
-  const navigate = useNavigate() // hook to navigate programmatically
+  const navigate = useNavigate()
+
+  // Scroll to top when component mounts
+  useEffect(() => {
+    window.scrollTo(0, 0)
+  }, [])
 
   const cards = [
     {
       title: "History",
       description: "Learn about the origin and development of Uber services.",
       imageSrc: "/ucard1.png",
-      link: "/Uhistory", // route path in your App.js
+      link: "/Uhistory",
     },
     {
       title: "Challenges",
@@ -47,7 +53,7 @@ export default function UberCards() {
         {cards.map((card, idx) => (
           <motion.div
             key={idx}
-            onClick={() => navigate(card.link)} // redirect on click
+            onClick={() => navigate(card.link)}
             className="group rounded-2xl bg-white/10 backdrop-blur-xl border border-white/20 p-6 shadow-xl h-[28rem] flex flex-col cursor-pointer hover:scale-105 transition-transform"
             variants={cardVariants}
           >
