@@ -14,7 +14,7 @@ export default function Navbar() {
       className="fixed top-4 left-0 right-0 z-50 
                  flex items-center justify-between 
                  mx-4 sm:mx-8 md:mx-12 
-                 px-3 sm:px-6 py-2 sm:py-3 
+                 px-4 sm:px-6 py-3 sm:py-4 
                  rounded-2xl border border-white/20 
                  bg-white/10 backdrop-blur-lg shadow-lg"
     >
@@ -36,9 +36,9 @@ export default function Navbar() {
         whileHover={{ scale: 1.05 }}
         whileTap={{ scale: 0.95 }}
         onClick={() => navigate("/About")}
-        className="px-3 sm:px-4 py-1 sm:py-2 
+        className="px-4 sm:px-5 py-2 sm:py-3 
                    rounded-full border border-white/20 
-                   bg-white/10 text-xs sm:text-sm md:text-base 
+                   bg-white/10 text-sm sm:text-base 
                    text-white font-medium 
                    hover:bg-white/20 transition-all cursor-pointer"
       >
