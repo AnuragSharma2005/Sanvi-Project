@@ -1,7 +1,7 @@
 "use client"
 import React, { useEffect } from "react"
 import { motion } from "framer-motion"
-import { Link } from "react-router-dom" 
+import { Link } from "react-router-dom"
 
 export default function Uchallenge() {
   // Scroll to top on mount
@@ -53,7 +53,7 @@ export default function Uchallenge() {
 
   return (
     <main className="relative min-h-screen bg-gradient-to-br from-[#0b1430] via-[#3b0764] to-black text-white px-6 sm:px-12 py-32 flex flex-col items-center justify-center overflow-hidden">
-      
+
       {/* ✨ Animated Heading */}
       <motion.h1
         initial={{ y: -50, opacity: 0 }}
@@ -85,9 +85,8 @@ export default function Uchallenge() {
           return (
             <div
               key={index}
-              className={`flex flex-col sm:flex-row items-center justify-between gap-12 sm:gap-24 ${
-                isEven ? "" : "sm:flex-row-reverse"
-              }`}
+              className={`flex flex-col sm:flex-row items-center justify-between gap-12 sm:gap-24 ${isEven ? "" : "sm:flex-row-reverse"
+                }`}
             >
               {/* Image */}
               <motion.div
@@ -123,26 +122,26 @@ export default function Uchallenge() {
                   {section.text}
                 </p>
               </motion.div>
-            </div> 
-            
+            </div>
+
           )
         })}
         {/* Buttons at the bottom */}
         <div className="w-full flex justify-between mt-12">
-  <Link
-    to="/Ahistory"
-    className="px-6 py-2 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-white hover:bg-white/20 transition text-center"
-  >
-    Previous
-  </Link>
+          <Link
+            to="/Ahistory"
+            className="px-6 py-2 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-white hover:bg-white/20 transition text-center"
+          >
+            Previous
+          </Link>
 
-  <Link
-    to="/Ascope"
-    className="px-6 py-2 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-white hover:bg-white/20 transition text-center"
-  >
-    Next
-  </Link>
-</div>
+          <Link
+            to="/Ascope"
+            className="px-6 py-2 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-white hover:bg-white/20 transition text-center"
+          >
+            Next
+          </Link>
+        </div>
       </div>
     </main>
   )

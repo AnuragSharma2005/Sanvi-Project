@@ -22,7 +22,7 @@ export default function Ahistory() {
 
   return (
     <main className="min-h-screen bg-gradient-to-br from-[#0b1430] via-[#3b0764] to-black text-white px-4 sm:px-12 py-24 flex flex-col sm:flex-row items-center justify-center gap-12 sm:gap-16">
-      
+
       {/* Left Side Image */}
       <motion.div
         className="w-full sm:w-1/2 flex items-center justify-center mt-8 sm:mt-0"
@@ -64,7 +64,7 @@ export default function Ahistory() {
         </p>
 
         {/* Buttons */}
-       <div className="w-full flex justify-between mt-6">
+        <div className="w-full flex justify-between mt-6">
           <Link
             to="/amazoncards" // replace with your route
             className="px-6 py-2 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-white hover:bg-white/20 transition text-center"

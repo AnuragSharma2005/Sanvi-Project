@@ -1,62 +1,80 @@
-"use client";
-
-import React from "react";
-import { motion } from "framer-motion";
-// import team1 from "../assets/team1.jpg";
-// import team2 from "../assets/team2.jpg";
-
-const teamMembers = [
-  { name: "Ava Patel", role: "Product Designer", image: team1 },
-  { name: "Liam Chen", role: "Full-Stack Engineer", image: team2 },
-];
+"use client"
+import React, { useEffect } from "react"
+import { motion } from "framer-motion"
 
 export default function About() {
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: { opacity: 1, transition: { staggerChildren: 0.2 } },
-  };
+  // ✅ Scroll to top when page loads or reloads
+  useEffect(() => {
+    window.scrollTo(0, 0)
+  }, [])
+
+  const teamMembers = [
+    { name: "Sanvi Neha Sinha", image: "/About1.jpg" },
+    { name: "Nidhi Singh", image: "/About2.jpg" },
+  ]
+
+  // Animation variants
+  const headingVariants = {
+    hidden: { opacity: 0, y: -50 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: { type: "spring", stiffness: 100, damping: 10, duration: 0.8 },
+    },
+  }
 
   const cardVariants = {
-    hidden: { y: 50, opacity: 0 },
-    visible: { y: 0, opacity: 1, transition: { type: "spring", stiffness: 80 } },
-    hover: { scale: 1.05, boxShadow: "0px 10px 20px rgba(0,0,0,0.5)" },
-  };
+    hidden: { opacity: 0, scale: 0.8 },
+    visible: (index) => ({
+      opacity: 1,
+      scale: 1,
+      transition: {
+        delay: index * 0.3,
+        type: "spring",
+        stiffness: 90,
+        damping: 15,
+      },
+    }),
+  }
 
   return (
-    <div className="max-w-6xl mx-auto py-16 px-4 text-center bg-gray-900 text-white">
+    <main className="min-h-screen w-full bg-gradient-to-br from-[#0b1430] via-[#3b0764] to-black text-white flex flex-col items-center px-4 sm:px-12 pt-36 pb-20">
+      
+      {/* Animated Heading */}
       <motion.h1
-        initial={{ y: -50, opacity: 0 }}
-        animate={{ y: 0, opacity: 1 }}
-        transition={{ type: "spring", stiffness: 100, damping: 20 }}
-        className="text-4xl font-bold mb-4"
-      >
-        Meet the Team
-      </motion.h1>
-      <motion.div
-        className="grid grid-cols-1 sm:grid-cols-2 gap-8 mt-12"
-        variants={containerVariants}
+        variants={headingVariants}
         initial="hidden"
         animate="visible"
+        className="text-4xl sm:text-6xl font-extrabold mb-16 text-center bg-gradient-to-r from-pink-500 via-purple-400 to-blue-400 bg-clip-text text-transparent tracking-wide drop-shadow-lg whitespace-nowrap"
       >
+        Meet Our Team ✨
+      </motion.h1>
+
+      {/* Animated Cards */}
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-16 items-center justify-center">
         {teamMembers.map((member, index) => (
           <motion.div
             key={index}
-            className="bg-gray-800 rounded-xl overflow-hidden shadow-md cursor-pointer"
+            custom={index}
             variants={cardVariants}
-            whileHover="hover"
+            initial="hidden"
+            animate="visible"
+            className="flex flex-col items-center hover:scale-105 transition-transform duration-300"
           >
-            <img
-              src={member.image}
-              alt={member.name}
-              className="w-full h-64 object-cover"
-            />
-            <div className="p-4 text-left">
-              <h2 className="text-lg font-semibold">{member.name}</h2>
-              <p className="text-gray-400">{member.role}</p>
+            <div className="w-64 h-64 sm:w-80 sm:h-80 rounded-2xl overflow-hidden border border-white/40 bg-black/30 shadow-2xl flex items-center justify-center cursor-pointer">
+              <img
+                src={member.image}
+                alt={member.name}
+                className="w-full h-full object-cover rounded-2xl"
+              />
             </div>
+            <p className="mt-5 text-2xl sm:text-3xl font-semibold bg-gradient-to-r from-fuchsia-400 via-pink-500 to-purple-400 bg-clip-text text-transparent tracking-wide">
+              {member.name}
+            </p>
+            <div className="h-[2px] w-24 mt-2 bg-gradient-to-r from-pink-500 to-purple-500 rounded-full"></div>
           </motion.div>
         ))}
-      </motion.div>
-    </div>
-  );
+      </div>
+    </main>
+  )
 }

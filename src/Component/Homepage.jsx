@@ -112,7 +112,7 @@ export default function Homepage() {
             </div>
             <h3 className="text-xl font-semibold mb-1">Uber — Ride Details</h3>
             <p className="text-sm opacity-90">Fast, reliable rides with live GPS and secure payments.</p>
-            <div className="mt-4">
+            <div className="mt-4 ">
               <GlowButton onClick={() => navigate("/ubercards")}>Uber Car</GlowButton>
             </div>
           </motion.div>
