@@ -1,10 +1,10 @@
 "use client"
 
 import { motion } from "framer-motion"
-import { useNavigate } from "react-router-dom" // ✅ Correct for Vite + React Router
+import { useNavigate } from "react-router-dom"
 
 export default function Navbar() {
-  const navigate = useNavigate() // ✅ Initialize navigation
+  const navigate = useNavigate()
 
   return (
     <motion.nav
@@ -13,14 +13,20 @@ export default function Navbar() {
       transition={{ duration: 0.6, ease: "easeOut" }}
       className="fixed top-4 left-0 right-0 z-50 
                  flex items-center justify-between 
-                 mx-6 sm:mx-12 px-6 py-3 
+                 mx-4 sm:mx-8 md:mx-12 
+                 px-3 sm:px-6 py-2 sm:py-3 
                  rounded-2xl border border-white/20 
                  bg-white/10 backdrop-blur-lg shadow-lg"
     >
       {/* Left side - Project name */}
       <h1
-        className="text-2xl sm:text-1xl md:text-4xl font-extrabold text-center bg-gradient-to-r from-pink-400 via-purple-400 to-blue-400 bg-clip-text text-transparent font-[Playfair_Display] cursor-pointer whitespace-nowrap md:whitespace-normal"
-        onClick={() => navigate("/")} // ✅ use navigate()
+        className="text-lg sm:text-xl md:text-3xl lg:text-4xl 
+                   font-extrabold text-center 
+                   bg-gradient-to-r from-pink-400 via-purple-400 to-blue-400 
+                   bg-clip-text text-transparent 
+                   font-[Playfair_Display] cursor-pointer 
+                   whitespace-nowrap"
+        onClick={() => navigate("/")}
       >
         Professional Ethics
       </h1>
@@ -29,9 +35,11 @@ export default function Navbar() {
       <motion.button
         whileHover={{ scale: 1.05 }}
         whileTap={{ scale: 0.95 }}
-        onClick={() => navigate("/About")} // ✅ use navigate()
-        className="px-4 py-2 rounded-full border border-white/20 
-                   bg-white/10 text-white text-sm font-medium 
+        onClick={() => navigate("/About")}
+        className="px-3 sm:px-4 py-1 sm:py-2 
+                   rounded-full border border-white/20 
+                   bg-white/10 text-xs sm:text-sm md:text-base 
+                   text-white font-medium 
                    hover:bg-white/20 transition-all cursor-pointer"
       >
         About Us
