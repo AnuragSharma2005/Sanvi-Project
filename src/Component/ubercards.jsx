@@ -1,15 +1,16 @@
 "use client"
 import { useEffect } from "react"
 import { motion } from "framer-motion"
-import { useNavigate } from "react-router-dom"
+import { useNavigate, useLocation } from "react-router-dom"
 
 export default function UberCards() {
   const navigate = useNavigate()
+  const location = useLocation() // Track route changes
 
-  // Scroll to top when component mounts
+  // Scroll to top on route change
   useEffect(() => {
     window.scrollTo(0, 0)
-  }, [])
+  }, [location.pathname]) // triggers whenever the path changes
 
   const cards = [
     {

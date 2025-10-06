@@ -1,6 +1,7 @@
 "use client"
 import React, { useEffect } from "react"
 import { motion } from "framer-motion"
+import { Link } from "react-router-dom" 
 
 export default function Uchallenge() {
   // Scroll to top on mount
@@ -122,9 +123,26 @@ export default function Uchallenge() {
                   {section.text}
                 </p>
               </motion.div>
-            </div>
+            </div> 
+            
           )
         })}
+        {/* Buttons at the bottom */}
+        <div className="w-full flex justify-between mt-12">
+  <Link
+    to="/Ahistory"
+    className="px-6 py-2 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-white hover:bg-white/20 transition text-center"
+  >
+    Previous
+  </Link>
+
+  <Link
+    to="/Ascope"
+    className="px-6 py-2 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-white hover:bg-white/20 transition text-center"
+  >
+    Next
+  </Link>
+</div>
       </div>
     </main>
   )

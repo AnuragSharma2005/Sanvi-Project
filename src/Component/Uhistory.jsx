@@ -66,13 +66,19 @@ export default function Uhistory() {
 
   {/* Buttons */}
   <div className="w-full flex justify-between mt-6">
-    <button className="px-6 py-2 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-white hover:bg-white/20 transition">
-      Previous
-    </button>
-    <button className="px-6 py-2 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-white hover:bg-white/20 transition">
-      Next
-    </button>
-  </div>
+      <button
+        onClick={() => navigate("/ubercards")} // replace with your route
+        className="px-6 py-2 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-white hover:bg-white/20 transition cursor-pointer"
+      >
+        Previous
+      </button>
+      <button
+        onClick={() => navigate("/uchallenge")} // replace with your route
+        className="px-6 py-2 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-white hover:bg-white/20 transition cursor-pointer"
+      >
+        Next
+      </button>
+    </div>
 </motion.div>
 
     </main>

@@ -1,8 +1,13 @@
 "use client"
-import React from "react"
+import React, { useEffect } from "react"
 import { motion } from "framer-motion"
 
 export default function Ascope() {
+  // Scroll to top when page loads
+  useEffect(() => {
+    window.scrollTo(0, 0)
+  }, [])
+
   // Animation variants
   const textVariants = {
     hidden: { x: -150, opacity: 0 },
@@ -23,29 +28,54 @@ export default function Ascope() {
   }
 
   return (
-    <main className="min-h-screen bg-gradient-to-br from-[#0b1430] via-[#3b0764] to-black text-white px-6 sm:px-12 flex flex-col sm:flex-row items-center justify-center gap-12">
+    <main className="min-h-screen bg-gradient-to-br from-[#0b1430] via-[#3b0764] to-black text-white px-6 sm:px-12 flex flex-col sm:flex-row items-center justify-center gap-12 pt-20 sm:pt-0 pb-20">
       
       {/* Left Side Text */}
+     {/* Left Side Text */}
       <motion.div
-        className="w-full sm:w-1/2 flex flex-col gap-4 text-left"
+        className="w-full sm:w-1/2 flex flex-col gap-4 text-left mt-8 sm:mt-20" // added mt-8 for mobile, mt-12 for larger screens
         variants={textVariants}
         initial="hidden"
         animate="visible"
       >
-        <h1 className="text-3xl sm:text-4xl font-bold mb-4">Uber History in India</h1>
+        <h1 className="text-3xl sm:text-4xl font-bold mb-4">Future Outlook for Amazon in India</h1>
 
         <p className="text-base sm:text-lg opacity-90 leading-relaxed text-justify">
-          Uber first marked its presence in India in 2013, launching its services in Bengaluru to challenge the traditional taxi model. Its initial strategy leveraged its core global strengths: a seamless, cashless, app-based booking experience, and professional drivers.
+          1. <strong>Easing Export Regulations:</strong> The most positive future development for Amazon is the potential relaxation of Foreign Direct Investment (FDI) rules for exports. This shift from a strict marketplace model to an export-facilitation model is a significant win that will streamline the supply chain and help Amazon achieve its goal of facilitating $80 billion in Indian e-commerce exports by 2030.
         </p>
 
         <p className="text-base sm:text-lg opacity-90 leading-relaxed text-justify">
-          The company quickly expanded, but faced significant local hurdles, most notably from domestic rival Ola and the market's heavy reliance on cash payments. This forced Uber to localize its product rapidly, introducing the cash payment option in 2015—a major deviation from its global model.
+          2. <strong>Intensified Domestic Scrutiny:</strong> Domestically, Amazon must prepare for a tougher regulatory landscape, particularly with the likely introduction of the Digital Competition Bill. This future legislation aims to:
         </p>
 
-        <p className="text-base sm:text-lg opacity-90 leading-relaxed text-justify">
-          Over the years, Uber poured billions of dollars into subsidies and incentives to acquire both riders and drivers, making India one of its most critical international battlegrounds. Furthermore, to cater to the diverse needs of the price-sensitive market, Uber introduced low-cost services like UberGO and categories like Uber Auto and Uber Moto (bike taxis), fundamentally transforming urban mobility and establishing a massive, if often volatile, presence across hundreds of Indian cities.
+        <p className="text-base sm:text-lg opacity-90 leading-relaxed text-justify ml-4">
+          • Curb Monopolistic Practices
         </p>
+        <p className="text-base sm:text-lg opacity-90 leading-relaxed text-justify ml-4">
+          • Mandate Data Protection
+        </p>
+        <p className="text-base sm:text-lg opacity-90 leading-relaxed text-justify ml-4">
+          • Enhance Consumer Protection
+        </p>
+
+        {/* Buttons below text */}
+      <div className="w-full flex justify-between mt-6">
+          <a
+            href="/Achallenge" // replace with your actual URL
+            className="px-6 py-2 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-white hover:bg-white/20 transition text-center"
+          >
+            Previous
+          </a>
+          <a
+            href="/" // replace with your actual URL
+            className="px-6 py-2 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-white hover:bg-white/20 transition text-center"
+          >
+            Next
+          </a>
+        </div>
+
       </motion.div>
+
 
       {/* Right Side Image */}
       <motion.div
@@ -57,7 +87,7 @@ export default function Ascope() {
         <div className="w-full max-w-md h-96 bg-black/20 rounded-xl border border-white/20 flex items-center justify-center overflow-hidden">
           <img
             src="/uhistory.png"
-            alt="Uber India Launch"
+            alt="Amazon Future Outlook"
             className="w-full h-full object-cover rounded-xl"
           />
         </div>

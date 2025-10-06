@@ -1,6 +1,7 @@
 "use client"
 import React, { useEffect } from "react"
 import { motion } from "framer-motion"
+import { Link } from "react-router-dom"
 
 export default function Ahistory() {
   // Scroll to top when page loads
@@ -63,13 +64,20 @@ export default function Ahistory() {
         </p>
 
         {/* Buttons */}
-        <div className="w-full flex justify-between mt-6">
-          <button className="px-6 py-2 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-white hover:bg-white/20 transition">
+       <div className="w-full flex justify-between mt-6">
+          <Link
+            to="/amazoncards" // replace with your route
+            className="px-6 py-2 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-white hover:bg-white/20 transition text-center"
+          >
             Previous
-          </button>
-          <button className="px-6 py-2 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-white hover:bg-white/20 transition">
+          </Link>
+
+          <Link
+            to="/Achallenge" // replace with your route
+            className="px-6 py-2 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-white hover:bg-white/20 transition text-center"
+          >
             Next
-          </button>
+          </Link>
         </div>
       </motion.div>
 

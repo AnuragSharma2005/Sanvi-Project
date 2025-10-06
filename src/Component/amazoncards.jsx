@@ -1,16 +1,23 @@
 "use client"
+import { useEffect } from "react"
 import { motion } from "framer-motion"
-import { useNavigate } from "react-router-dom"
+import { useNavigate, useLocation } from "react-router-dom"
 
 export default function Amazoncards() {
-  const navigate = useNavigate() // hook to navigate programmatically
+  const navigate = useNavigate()
+  const location = useLocation() // Track route changes
+
+  // Scroll to top whenever route changes
+  useEffect(() => {
+    window.scrollTo(0, 0)
+  }, [location.pathname])
 
   const cards = [
     {
       title: "History",
       description: "Learn about the origin and development of Uber services.",
       imageSrc: "/Acard1.png",
-      link: "/Ahistory", // route path in your App.js
+      link: "/Ahistory",
     },
     {
       title: "Challenges",
@@ -47,7 +54,7 @@ export default function Amazoncards() {
         {cards.map((card, idx) => (
           <motion.div
             key={idx}
-            onClick={() => navigate(card.link)} // redirect on click
+            onClick={() => navigate(card.link)}
             className="group rounded-2xl bg-white/10 backdrop-blur-xl border border-white/20 p-6 shadow-xl h-[28rem] flex flex-col cursor-pointer hover:scale-105 transition-transform"
             variants={cardVariants}
           >

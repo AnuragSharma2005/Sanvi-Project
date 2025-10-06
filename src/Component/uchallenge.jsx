@@ -1,8 +1,11 @@
 "use client"
 import React, { useEffect } from "react"
 import { motion } from "framer-motion"
+import { useNavigate } from "react-router-dom"
 
 export default function Uchallenge() {
+  const navigate = useNavigate()
+
   // Scroll to top on mount
   useEffect(() => {
     window.scrollTo(0, 0)
@@ -125,6 +128,22 @@ export default function Uchallenge() {
             </div>
           )
         })}
+
+        {/* Buttons at the bottom */}
+        <div className="w-full flex justify-between mt-12">
+          <button
+            onClick={() => navigate("/Uhistory")}
+            className="px-6 py-2 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-white hover:bg-white/20 transition cursor-pointer"
+          >
+            Previous
+          </button>
+          <button
+            onClick={() => navigate("/uscope")}
+            className="px-6 py-2 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-white hover:bg-white/20 transition cursor-pointer"
+          >
+            Next
+          </button>
+        </div>
       </div>
     </main>
   )
